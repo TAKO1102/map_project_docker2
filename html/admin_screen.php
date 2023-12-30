@@ -226,6 +226,7 @@ font-size: 18px;
  display: inline-block;
  text-align: center;
  background: #340beb;
+ /* background: #999; */
  color: #fff;
  font-size: 15px;
 }
@@ -279,15 +280,15 @@ font-size: 18px;
     <?php else : ?>
         <!-- ログイン成功画面 -->
         <form>
-    <p class="label-title">除雪情報入力</p>
+    <p class="label-title">除雪質問フォーム</p>
    <div class="form-sample">
      <p class="form-label"><span class="form-require">必須</span>氏名</p>
      <input type="text" class="form-input" placeholder="例）鈴木一郎">
    </div>
-   <div class="form-sample">
+   <!-- <div class="form-sample">
      <p class="form-label"><span class="form-require">必須</span>電話番号</p>
      <input type="text" class="form-input" placeholder="例）123-4567-8910">
-   </div>
+   </div> -->
    <div class="form-sample">
      <p class="form-label"><span class="form-require">必須</span>メールアドレス</p>
      <input type="email" class="form-input" placeholder="例）sample@gmail.com">
@@ -299,10 +300,11 @@ font-size: 18px;
    <input type="submit" class="form-Btn" value="送信する">
  </form>
 
-        <p>タカ</p>
+        <!-- <p>タカ</p> -->
     <?php endif ?>
 
     <a href="./login.php">戻る</a>
+    <a href="./add_information.html">情報追加</a>
     <!-- http://192.168.10.120/map_project/login.php -->
 </body>
 </html>

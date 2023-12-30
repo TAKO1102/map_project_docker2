@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>zyosetu_system</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- <link rel='stylesheet' href='css/easy-button.css'/> -->
+    <!-- <script src='js/easy-button.js'></script> -->
+
+    <style class="mapview" type="text/css">
+      #mapid { height: 700px; width: 1420px ;top: 0px;left:100px; right:350px;z-index: 0;}
+      
+    </style>
+
+    <!-- AIチャットボットCSS -->
+    <link rel="stylesheet" href="css/AIbot.css" type="text/css">
+
+    <!-- AIチャットボットJS -->
+    <script type="module" src="js/main.js" defer></script>
+
+    <style media="screen">
+ 
+     nav ul li{
+        /* display: inline-block; */
+        margin: 0 0px;
+      }
+    a{
+      text-decoration: none;
+    }
+    </style>
+
+    <link rel="stylesheet" href="css/HamburgerMenu.css">
+
+    <!-- pyscript -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+
+
+
+  <body bgcolor="#FFFFFF"><!-- #A9CEEC -->
+    <img src="image/freefont_logo_kouzansousho.png">
+
+    <!-- ハンバーガーメニュー -->
+    <link href= "https://fonts.googleapis.com/icon?family=Material+Icons" rel= "stylesheet">
+    <header>
+      <div class="sp-menu">
+        <span class="material-icons" id="open">menu</span>
+      </div>
+    </header>
+  
+    <div class="overlay">
+      <span class="material-icons" id="close">close</span>
+      <nav>
+        <ul>
+          <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
+          <!-- <img src="freefont_logo_kouzansousho2.png"> -->
+          <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
+          <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- <script>
+      open.addEventListener('click', () => {
+      overlay.classList.add('show');
+      open.classList.add('hide');
+
+    });
+
+    close.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      open.classList.remove('hide');
+    });
+  
+    </script> -->
+    <script src="js/HamburgerMenu.js"></script>
+    <!-- ハンバーガーメニュー終わり -->
+
+    <!-- AIチャットボット -->
+
+    <!--Import Google Icon Font-->
+
+
+<div id= "chatbot">
+  
+  <div id= "chatbot-header">
+    <div id= "chatbot-logo">AI Chatbot</div>
+    <i id= "chatbot-zoom-icon" class="material-icons waves-effect waves-light" onclick= "chatbotZoom()">fullscreen</i>
+  </div>
+  
+  <div id= "chatbot-body">
+    <ul id= "chatbot-ul"></ul>
+  </div>
+  
+  <!--入力場所，送信ボタン-->
+  <form onsubmit= "return false">
+    <div id= "chatbot-footer">
+      <input type= "text" id= "chatbot-text" class= "browser-default" placeholder= "テキストを入力">
+      <input type= "submit" value= "送信" id= "chatbot-submit">
+    </div>
+  </form>
+  
+</div>
+
+<!-- AIチャットボット終わり -->
+
+    <div id="mapid"></div>
+    <!-- <button type="button"style="position: absolute; left: 0px; top: 0px">ボタン</button> -->
+    
+    <!-- <nav class="global-nav" style="position: absolute; left: 0px; top: 150px" ;>
+      <p>メニュー</p>
+      <ul>
+        <li><a href="#">menu</a></li>
+        <li><a href="http://192.168.10.120/map_project/login.php">login</a></li>
+        <li><a href="access.html">access</a></li>
+      </ul>
+    </nav> -->
+
+
+    <!-- <src='./chino64.txt' id='chino'></src> -->
+
+
+    <script type="module">
+      var mymap = L.map('mapid').setView([43.79, 142.41],13);
+
+      //var mymap = L.map('mapid').setView([35.6896,139.6918],9);
+
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+    	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+      }).addTo(mymap);
+	    // var triangle = L.polygon([
+      //     [43.81472, 142.35843],
+      //     [43.81588, 142.35680],
+      //     [43.81239, 142.35195],
+		  //     [43.81118, 142.35355],
+      // ]).addTo(mymap);
+       
+
+
+      function onLocationFound(e) {
+          L.marker(e.latlng).addTo(mymap).bindPopup("現在地").openPopup();
+      }
+
+      function onLocationError(e) {
+          alert("現在地を取得できませんでした。" + e.message);
+      }
+
+       mymap.on('locationfound', onLocationFound);
+      // mymap.on('locationerror', onLocationError);
+
+     // mymap.locate({setView: true, maxZoom: 16, timeout: 20000});
+      //2
+      // var popup = L.popup().setContent('ポップアップメッセージ');
+      // L.easyButton('fas fa-comment-alt', function(btn, easyMap){
+      //   popup.setLatLng(easyMap.getCenter()).openOn(easyMap);
+      // }).addTo(map);
+
+
+
+      var markers=[];
+
+      // markers[0]=
+      L.marker([35.6896, 139.6918]).addTo(mymap);
+      
+      //.bindPopup('<img src="image/freefont_logo_kouzansousho2.png"  /><p>ここに文章を追加</p>');//.openPopup();
+      //markers[1]=
+      L.marker([35.6050, 140.1234]).addTo(mymap).bindPopup("千葉県");
+      //markers[2]=
+      L.marker([35.8572, 139.6490]).addTo(mymap).bindPopup("埼玉県");
+      //L.marker([43.8089, 142.35355]).addTo(mymap).bindPopup("埼玉県");
+
+
+      // L.marker([43.80963, 142.35355]).addTo(mymap).bindPopup('<img src="image/pre_image.png"  /><p>2023年1月13日10:26</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.80963, 142.35355</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
+      // L.marker([43.8213211, 142.3541]).addTo(mymap).bindPopup('<img src="image/magarimiti.jpg"  /><p>2023年1月13日10:56</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.8213211, 142.3541</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
+
+      L.marker([43.8173211, 142.35329]).addTo(mymap).bindPopup('<img src="image/pre4_image.jpg"  /><p>2023年1月13日10:56</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.8213211, 142.3541</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
+
+
+
+      import data2 from "./data2.json" assert { type: "json" };
+      // var xhr = new XMLHttpRequest();
+      // xhr.open('GET', 'https://zyosetu.net/api/v1/reports', true);
+
+      // xhr.onload = function() {
+      //   if (xhr.status >= 200 && xhr.status < 300) {
+      //     var jsonResponse = JSON.parse(xhr.responseText);
+      //     // 取得したJSONデータを処理するためのコードをここに記述
+      //     console.log(jsonResponse);
+      //   } else {
+      //     console.error('Request failed with status:', xhr.status);
+      //   }
+      // };
+
+      // xhr.onerror = function() {
+      //   console.error('There was a problem with the request.');
+      // };
+
+      // xhr.send();
+
+
+      var latlngs_current = [];
+        var latlngs_prev= [];
+        var i=0;
+
+
+      fetch('https://zyosetu.net/api/v1/reports')
+      .then(response => response.json())
+      // .then(response => {
+      //   if (!response.ok) {
+      //     throw new Error('Network response was not ok');
+      //   }
+      //   return response.json(); // JSONデータを解析してPromiseを返す
+      // })
+      .then(data => {
+        // 取得したJSONデータを処理するためのコードをここに記述
+
+        console.log(data);
+
+        
+        data.forEach(item => {
+
+          
+
+          var image_temp = new Image();
+
+          
+                  
+          if(!(item.vehicle_number=='旭川900あ00-00')&& !(item.vehicle_number=='master_data_00001D')){
+
+            console.log(item.vehicle_number);
+            fetch('https://zyosetu.net/api/v1/reports/'+item.id+'/images')
+            .then(response => response.json())
+            // .then(response => {
+            //   if (!response.ok) {
+            //     throw new Error('Image response was not ok');
+            //   }
+            //   return response.text();
+            // })
+            .then(ImageData => {
+
+              function Base64ToImage(base64img, callback) {
+                var img = new Image();
+                img.onload = function() {
+                    callback(img);
+                };
+                img.src = base64img;
+              }
+
+              // テキストデータを取得した後の処理を行う
+              //console.log("ImageData : "+ImageData);
+              //console.log("ImageData.image : "+ImageData.image);
+
+              // Base64文字列を取得
+              var base64img = "data:image/png;base64,"+ImageData.image;
+              //console.log('base64img : '+base64img);
+
+              // Base64文字列を画像に変換
+              Base64ToImage(base64img, function(img) {
+                // 1. 画像をbase64形式で読み込む
+                var img = new Image();
+                img.src =  base64img;
+
+                //console.log(img.src);
+
+                // 2. 画像をCanvasに描画する
+                var canvas = document.createElement('canvas');
+                var x = 160;
+                var y = 160;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, x, y);
+                //ctx.drawImage(img, 0, 0);
+
+                //console.log();
+
+                // 3. Canvasから新しいbase64形式の画像を取得する
+                var resizedImg = canvas.toDataURL('image/png');
+
+                // 4. 新しい画像をWebサイトの画面に表示する
+                var newImg = new Image();
+                newImg.src = resizedImg;
+
+                //document.body.appendChild(newImg);
+
+                //console.log(resizedImg);
+                //console.log(newImg);
+
+
+                
+                var image='<img src='+'"'+resizedImg+'"'+'/>';
+                //let image="'"+newImg.outerHTML+"'";
+                //document.body.appendChild(image);
+                console.log(item.longitude);
+                var longi=parseFloat(item.longitude);
+                var latit=parseFloat(item.latitude);
+
+                var time="'"+'<br><p>日時: '+item.capture_time+'</p>';
+                var vehicle_number='<p>除雪車ナンバー: '+item.vehicle_number+'</p>';
+                var position='<p>緯度,経度: '+latit+', '+longi+'</p>';
+                var id='<p>作業者ID: '+item.id+'</p>'+"'";
+                //let message='<p>報告内容: '+除雪を実施しました+'</p>';
+
+                console.log(image+time+vehicle_number+position+id);
+
+                L.marker([longi, latit],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
+                //.bindPopup(image+time+vehicle_number+position+id);
+
+                i++;
+
+                if(i!=1){
+                  latlngs_current=[longi, latit];
+                  L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
+                  latlngs_prev=[longi, latit];
+                }else{
+                  latlngs_prev=[longi, latit];
+                }
+              });
+            });
+          }
+        });  
+      })
+
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+
+      //=====================================================
+        // Base64形式の文字列 → <img>要素に変換
+        //   base64img: Base64形式の文字列
+        //   callback : 変換後のコールバック。引数は<img>要素
+        //=====================================================
+        // function Base64ToImage(base64img, callback) {
+        //     var img = new Image();
+        //     img.onload = function() {
+        //         callback(img);
+        //     };
+        //     img.src = base64img;
+        // }
+ 
+      //L.polyline([latlngs_current], {color: 'red'}).addTo(mymap);
+      //latlngs_prev=[latit, longi];
+      //console.log("latlngs = "+latlngs_current);
+
+
+    </script>
+
+
+
+    <!-- <div id= "datajson1102"></div>
+    <script type="module">
+      //
+      //json読み込み練習
+      //
+
+      import data from "./data.json" assert { type: "json" };
+      console.log(data);
+
+      const container = document.getElementById('datajson1102');
+      let html = '';
+
+      // JSONデータを処理してHTMLに表示
+      data.forEach(item => {
+          html += `<p>${item.name}: ${item.test.japanese}</p>`;
+      });
+
+      // HTMLをコンテナに挿入
+      container.innerHTML = html;
+
+
+      
+    </script> -->
+
+    <script id= "datajson1102-2"></script>
+    <script type="module">
+
+      
+    </script>
+
+    <a href="./add_information.html">情報追加</a>
+
+
+
+  </body>
+</html>

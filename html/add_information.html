@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .vertical {
+            display: block; /* もしくは flex */
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Contact Form</h1>
+
+<form action="">
+
+    <div class="vertical">  
+        <input type="text" placeholder="2023年〇月〇日△:△" name="name" required>
+    </div>
+    <div class="vertical">
+        <input type="text" placeholder="除雪車ナンバー" name="car_number" required>
+    </div>
+
+    <div class="vertical">
+        <input type="email" placeholder="緯度" name="ido" required>
+    </div>
+    
+    <div class="vertical">
+        <input type="email" placeholder="経度" name="keido" required>
+    </div>
+
+
+    <div class="vertical">
+        <input placeholder="作業者ID" name="sagyosyaID" required>
+    </div>
+
+    <div class="captcha">
+        <div class="vertical">
+            <textarea type="text" placeholder="除雪コメント" name="captcha" required></textarea>
+        </div>
+    </div>
+ 
+
+  <input type="submit" value="Send">
+
+</form>
+</body>
+</html>
