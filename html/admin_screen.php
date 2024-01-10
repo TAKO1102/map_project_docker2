@@ -152,125 +152,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者画面</title>
-    <style>
-        .label-title {
- font-size: 40px;
- text-align: center;
- border: solid 3px  #340beb;
-  border-radius: 6px;
-  background:  #340beb;
-  color: #fff;
-}
- 
- 
- 
-form {
- margin-left: auto;
- margin-right: auto;
- max-width: 720px;
- }
- 
- 
-.radioinput {
- text-align: center;
- }
- 
- 
-.form-sample {
- width: 100%;
- display: flex;
- align-items: center;
- padding-left: 14px;
- padding-right: 14px;
- padding-bottom: 15px;
-}
- 
-.form-radio {
- display: flex;
- width: 100%;
- display: flex;
- align-items: center;
- padding-left: 14px;
- padding-right: 14px;
- padding-bottom: 15px;
- }
- 
- 
- 
-.radio-label {
- width: 100%;
- max-width: 500px;
- margin-left: 20px;
-font-size: 18px;
-}
- 
- 
-.form-label {
- width: 100%;
- max-width: 248px;
- font-weight: bold;
- font-size: 19px;
-}
- 
-.form-label.last {
- margin-top: 10px;
- margin-bottom: auto;
-}
- 
-.form-require {
- border-radius: 5px;
- margin-right: 10px;
- padding-top: 10px;
- padding-bottom: 10px;
- width: 55px;
- display: inline-block;
- text-align: center;
- background: #340beb;
- /* background: #999; */
- color: #fff;
- font-size: 15px;
-}
- 
-.form-input {
- border: 1px solid gray;
- border-radius: 5px;
- margin-left: 40px;
- padding-left: 10px;
- height: 50px;
- width: 100%;
- max-width: 410px;
- font-size: 18px;
-}
- 
-.form-textarea {
- border: 1px solid gray;
- border-radius: 6px;
- margin-left: 40px;
- padding-left: 1em;
- padding-right: 1em;
- height: 216px;
- flex: 1;
- width: 100%;
- max-width: 410px;
- font-size: 18px;
-}
- 
-.form-Btn {
- border-radius: 6px;
- margin-top: 32px;
- margin-left: auto;
- margin-right: auto;
- padding-top: 20px;
- padding-bottom: 20px;
- width: 280px;
- display: block;
- letter-spacing: 0.05em;
- background: #340beb;
- color: #fff;
- font-weight: bold;
- font-size: 20px;
-}
-    </style>
+    
 </head>
 <body>
     <?php if(count($err)>0): ?>
@@ -279,7 +161,7 @@ font-size: 18px;
     <?php endforeach ?>
     <?php else : ?>
         <!-- ログイン成功画面 -->
-        <form>
+<form>
     <p class="label-title">除雪質問フォーム</p>
    <div class="form-sample">
      <p class="form-label"><span class="form-require">必須</span>氏名</p>

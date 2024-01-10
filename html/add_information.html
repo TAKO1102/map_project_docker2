@@ -10,10 +10,41 @@
             display: block; /* もしくは flex */
         }
     </style>
-    
+
+    <link rel="stylesheet" href="css/add_information.css" type="text/css">
+
+
+
+    <!-- <link rel="stylesheet" href="css/HamburgerMenu.css"> -->
+
+
 </head>
 <body>
-    <h1>Contact Form</h1>
+
+    <!-- ハンバーガーメニュー -->
+    <!-- <link href= "https://fonts.googleapis.com/icon?family=Material+Icons" rel= "stylesheet">
+    <header>
+        <div class="sp-menu">
+        <span class="material-icons" id="open">menu</span>
+        </div>
+    </header>
+    
+    <div class="overlay">
+        <span class="material-icons" id="close">close</span>
+        <nav>
+        <ul>
+            <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
+            <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
+            <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
+            <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
+        </ul>
+        </nav>
+    </div>
+
+    <script src="js/HamburgerMenu.js"></script> -->
+    <!-- ハンバーガーメニュー終わり -->
+
+    <h1>Add Information</h1>
 
 <form action="">
 
@@ -37,15 +68,27 @@
         <input placeholder="作業者ID" name="sagyosyaID" required>
     </div>
 
-    <div class="captcha">
+
+    <!-- <div class="captcha">
         <div class="vertical">
             <textarea type="text" placeholder="除雪コメント" name="captcha" required></textarea>
         </div>
-    </div>
+    </div> -->
  
+</form>
 
-  <input type="submit" value="Send">
 
 </form>
+
+<form action="index.html" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="file" name="test">
+    </div>
+</form>
+
+<form action=""> 
+    <input type="submit" value="Send">
+</form>
+ 
 </body>
 </html>

@@ -1,0 +1,103 @@
+[
+    {
+        "id": "1e0594ee-e6ac-4ca7-beaf-29509409d0cf",
+        "position": "SRID=4326;POINT (43.80609416902521 37.64590460687711)",
+        "latitude": 142.3540953931229,
+        "longitude": 43.80609416902521,
+        "srid": 4326,
+        "heading": 329.7223340603793,
+        "join_time": "2023-12-29T19:25:15.876140+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/1e0594ee-e6ac-4ca7-beaf-29509409d0cf.txt"
+    },
+        {
+        "id": "81c20400-90c0-4c70-9f69-3d985b0e2d59",
+        "position": "SRID=4326;POINT (43.81001147064276 37.649062786511)",
+        "latitude": 142.35140919685367,
+        "longitude": 43.80950079752819,
+        "srid": 4326,
+        "heading": 329.7223340603793,
+        "join_time": "2023-12-29T19:25:14.686102+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/81c20400-90c0-4c70-9f69-3d985b0e2d59.txt"
+    },
+    {
+        "id": "18372c16-f80c-4981-9556-6c79f3e28683",
+        "position": "SRID=4326;POINT (43.80995106625976 37.64805714865051)",
+        "latitude": 142.3519428513495,
+        "longitude": 43.80995106625976,
+        "srid": 4326,
+        "heading": 225.12934568997315,
+        "join_time": "2023-12-29T19:25:14.066692+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/18372c16-f80c-4981-9556-6c79f3e28683.txt"
+    },
+    {
+        "id": "0015a8fe-7282-4a52-adad-28670b8d1f08",
+        "position": "SRID=4326;POINT (43.81101789631215 37.64657750883859)",
+        "latitude": 142.3534224911614,
+        "longitude": 43.81101789631215,
+        "srid": 4326,
+        "heading": 225.12934568997315,
+        "join_time": "2023-12-29T19:25:16.450233+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/0015a8fe-7282-4a52-adad-28670b8d1f08.txt"
+    },
+
+    {
+        "id": "13ddae64-6949-4794-840e-6df512cd513e",
+        "position": "SRID=4326;POINT (43.81139890235419 37.64604905328301)",
+        "latitude": 142.353950946717,
+        "longitude": 43.81139890235419,
+        "srid": 4326,
+        "heading": 225.12934568997315,
+        "join_time": "2023-12-29T19:25:15.285735+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/13ddae64-6949-4794-840e-6df512cd513e.txt"
+    },
+
+
+    {
+        "id": "5d081ef9-afd6-4ce2-ad37-ec121fbaae86",
+        "position": "SRID=4326;POINT (43.81299910076817 37.64382946657659)",
+        "latitude": 142.3561705334234,
+        "longitude": 43.81299910076817,
+        "srid": 4326,
+        "heading": 225.12934568997315,
+        "join_time": "2023-12-29T19:25:17.031733+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/5d081ef9-afd6-4ce2-ad37-ec121fbaae86.txt"
+    },
+    {
+        "id": "471047ca-affa-4bd5-b965-dbaad769e06a",
+        "position": "SRID=4326;POINT (43.8145796512245 37.6450980614008)",
+        "latitude": 142.35862970352176,
+        "longitude": 43.81468024903108,
+        "srid": 4326,
+        "heading": 225.09882415936187,
+        "join_time": "2023-12-29T19:25:17.619199+09:00",
+        "tag1": "debug",
+        "tag2": "debug",
+        "tag3": "debug",
+        "folder": "debug",
+        "image_name": "debug/471047ca-affa-4bd5-b965-dbaad769e06a.txt"
+    }
+]

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/question_form.css" type="text/css">
+    
+    <link rel="stylesheet" href="css/HamburgerMenu.css">
+
+</head>
+<body>
+
+        <!-- ハンバーガーメニュー -->
+        <link href= "https://fonts.googleapis.com/icon?family=Material+Icons" rel= "stylesheet">
+        <header>
+          <div class="sp-menu">
+            <span class="material-icons" id="open">menu</span>
+          </div>
+        </header>
+      
+        <div class="overlay">
+          <span class="material-icons" id="close">close</span>
+          <nav>
+            <ul>
+              <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
+              <!-- <img src="freefont_logo_kouzansousho2.png"> -->
+              <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
+              <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
+              <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <script src="js/HamburgerMenu.js"></script>
+        <!-- ハンバーガーメニュー終わり -->
+
+    <form>
+        <p class="label-title">除雪質問フォーム</p>
+        <div class="form-sample">
+            <p class="form-label"><span class="form-require">必須</span>氏名</p>
+            <input type="text" class="form-input" placeholder="例）鈴木一郎">
+        </div>
+        <!-- <div class="form-sample">
+        <p class="form-label"><span class="form-require">必須</span>電話番号</p>
+        <input type="text" class="form-input" placeholder="例）123-4567-8910">
+        </div> -->
+        <div class="form-sample">
+            <p class="form-label"><span class="form-require">必須</span>メールアドレス</p>
+            <input type="email" class="form-input" placeholder="例）sample@gmail.com">
+        </div>
+        <div class="form-sample">
+            <p class="form-label last"><span class="form-require">必須</span>お問い合わせ内容</p>
+            <textarea class="form-textarea"></textarea>
+        </div>
+        <input type="submit" class="form-Btn" value="送信する">
+    </form>
+</body>
+

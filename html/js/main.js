@@ -65,7 +65,7 @@
 //     messages: [{role: "user", content: "ChatGPT について教えて"}],
 // });
 //   console.log(completion.data.choices[0].message);
-const API_KEY = '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';
+const API_KEY = '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';
 
 async function chatgpt(mytext){
     console.log(mytext.value)
@@ -101,7 +101,7 @@ async function chatgpt(mytext){
 // ロボットからの投稿一覧のオブジェクト
 // textには投稿文，continueは次も連続で投稿するかどうか，optionは普通の投稿or選択肢orランダム投稿など
 const chatList = {
-    1: {text: 'ようこそ「除雪たす chatbot」へ！', continue: false, option: 'normal'},
+    1: {text: 'ようこそ「除雪質問 chatbot」へ！', continue: false, option: 'normal'},
     2: {text: 'a', continue: false, option: 'normal'},
     3: {text: 'i', continue: false, option: 'normal'},
     4: {text: 'u', continue: false, option: 'normal'},

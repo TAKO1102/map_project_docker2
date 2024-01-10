@@ -37,6 +37,7 @@
           <!-- <img src="freefont_logo_kouzansousho2.png"> -->
           <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
           <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
+          <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
         </ul>
       </nav>
     </div>
