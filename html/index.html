@@ -246,11 +246,12 @@
       var latlngs_current = [];
       var latlngs_prev= [];
       var i=0;
+      var line_count=0;
 
       fetch(
         // 'https://zyosetu.net/api/v1/reports?capture-time=2024-01-10T10:18:13.741877+09:00&after=1&befor=1&days=1'
-         'https://zyosetu.net/api/v1/reports?sort=2&max=60'
-        // 'https://zyosetu.net/api/v1/reports?capture-time=2024-01-10T10:18:13.741877+09:00&after=1&befor=1&days=1'
+         //'https://zyosetu.net/api/v1/reports?sort=2&max=60'
+        'https://zyosetu.net/api/v1/reports?capture-time=2024-01-10T10:18:13.741877+09:00&after=1&befor=1&days=1&sort=2&max=50'
         //'https://zyosetu.net/api/v1/reports?vehicle_number=experiment'
         )
       .then(response => {
@@ -259,7 +260,7 @@
         }
         return response.json(); // JSONデータを解析してPromiseを返す
       })
-      .then(async data => {
+      .then(data => {
         // 取得したJSONデータを処理するためのコードをここに記述
         console.log(data);
 
@@ -270,6 +271,22 @@
               //!(item.user_id=='114514')
              !(item.vehicle_number=='旭川900あ00-00')&& !(item.vehicle_number=='master_data_00001D')
            ){
+
+            var longi_line=item.longitude;
+            var latit_line=item.latitude;
+
+            line_count++;
+
+            if(line_count!=1){
+              latlngs_current=[latit_line, longi_line];
+              L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
+              latlngs_prev=[latit_line, longi_line];
+            }else{
+              latlngs_prev=[latit_line, longi_line];
+            }
+
+
+
             function Base64ToImage(base64img, callback) {
               var img = new Image();
               img.onload = function() {
@@ -277,15 +294,14 @@
               };
               img.src = base64img;
             }
-            console.log(item.vehicle_number
-            );
+            console.log(item.vehicle_number);
 
-            // // 関数
-            // const my_sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-            // // 呼び出しサンプル
-            // await my_sleep(3000);
 
+            const maxRetry = 10;
+            let retryCount = 0;
+
+          async function fetchData(){
             fetch ('https://zyosetu.net/api/v1/reports/'+item.id+'/images')
             .then(response => {
               if (!response.ok) {
@@ -374,7 +390,7 @@
                 if(i!=1){
                   latlngs_current=[latit, longi];
                   await L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
-                  await L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
+                  // await L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
                   latlngs_prev=[latit, longi];
                 }else{
                   latlngs_prev=[latit, longi];
@@ -392,11 +408,21 @@
               });
             })
             .catch(error => {
-              console.error('There was a problem with the fetch operation:', error);
+              retryCount++;
+
+              if(retryCount < maxRetry){
+                console.log("Retry : "+retryCount);
+                fetchData();
+              }else{
+                console.error(error);
+              }
+              
             });
-         }
+          }
+          fetchData();
+        }
         };
-        var tm = 500;
+        var tm = 100;
         setTimeout(sleep_fn,tm);
           
         });  
@@ -406,6 +432,7 @@
         console.error('There was a problem with the fetch operation:', error);
       });
 
+      console.log("おわり～")
       //=====================================================
         // Base64形式の文字列 → <img>要素に変換
         //   base64img: Base64形式の文字列
@@ -420,39 +447,7 @@
 
     </script>
 
-
-
-    <div id= "datajson1102"></div>
-    <script type="module">
-      //
-      //json読み込み練習
-      //
-
-      import data from "./data.json" assert { type: "json" };
-      console.log(data);
-
-      const container = document.getElementById('datajson1102');
-      let html = '';
-
-      // JSONデータを処理してHTMLに表示
-      data.forEach(item => {
-          html += `<p>${item.name}: ${item.test.japanese}</p>`;
-      });
-
-      // HTMLをコンテナに挿入
-      container.innerHTML = html;
-
-
-      
-    </script>
-
-    <script id= "datajson1102-2"></script>
-    <script type="module">
-
-      
-    </script>
-
-    <a href="./add_information.html">情報追加</a>
+    <!-- <a href="./add_information.html">情報追加</a> -->
 
 
 
