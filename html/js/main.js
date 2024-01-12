@@ -65,48 +65,51 @@
 //     messages: [{role: "user", content: "ChatGPT について教えて"}],
 // });
 //   console.log(completion.data.choices[0].message);
-const API_KEY = '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';
+const API_KEY = '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';
 
-async function chatgpt(mytext){
-    console.log(mytext.value)
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            messages: [{ role: 'user', content: mytext.value }],
-            temperature: 1.0,
-            top_p: 0.7,
-            n: 1,
-            stream: false,
-            presence_penalty: 0,
-            frequency_penalty: 0,
-            max_tokens:256,
-        }),
-    });
 
-    if (response.ok) {
-        const data = await response.json();
-        //responseTextarea.value = data.choices[0].message.content;
-        console.log(data.choices[0].message.content);
-        return data.choices[0].message.content;
-    } else {
-        //responseTextarea.value = 'Error: Unable to process your request.';
-    }
-}
+// async function chatgpt(mytext){
+//     console.log(mytext.value)
+//     const response = await fetch('https://api.openai.com/v1/chat/completions', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${API_KEY}`,
+//         },
+//         body: JSON.stringify({
+//             model: 'gpt-3.5-turbo',
+//             messages: [{ role: 'user', content: mytext.value }],
+//             temperature: 1.0,
+//             top_p: 0.7,
+//             n: 1,
+//             stream: false,
+//             presence_penalty: 0,
+//             frequency_penalty: 0,
+//             max_tokens:256,
+//         }),
+//     });
+
+//     if (response.ok) {
+//         const data = await response.json();
+//         //responseTextarea.value = data.choices[0].message.content;
+//         console.log(data.choices[0].message.content);
+//         return data.choices[0].message.content;
+//     } else {
+//         //responseTextarea.value = 'Error: Unable to process your request.';
+//     }
+// }
+
+
 
 // ロボットからの投稿一覧のオブジェクト
 // textには投稿文，continueは次も連続で投稿するかどうか，optionは普通の投稿or選択肢orランダム投稿など
 const chatList = {
     1: {text: 'ようこそ「除雪質問 chatbot」へ！', continue: false, option: 'normal'},
-    2: {text: 'a', continue: false, option: 'normal'},
-    3: {text: 'i', continue: false, option: 'normal'},
-    4: {text: 'u', continue: false, option: 'normal'},
-    5: {text: 'e', continue: false, option: 'normal'},
-    6: {text: 'o', continue: false, option: 'normal'},
+    // 2: {text: 'a', continue: false, option: 'normal'},
+    // 3: {text: 'i', continue: false, option: 'normal'},
+    // 4: {text: 'u', continue: false, option: 'normal'},
+    // 5: {text: 'e', continue: false, option: 'normal'},
+    // 6: {text: 'o', continue: false, option: 'normal'},
 };
 
 // 「userCount」は実質必要ないが、管理しやすくするために導入する（「chatList」のコメントアウト，最後のやまびこ，今後の開発）
