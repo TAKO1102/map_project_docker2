@@ -360,8 +360,10 @@
                 //console.log(item);
                 var longi=item.longitude;
                 var latit=item.latitude;
-
-                let time='<br><p>日時: '+item.capture_time+'</p>';
+                
+                var date=item.capture_time.substr(0,10)
+                var time=item.capture_time.substr(11,8)
+                let datetime='<br><p>日時: '+date+' '+time+'</p>';
                 let vehicle_number='<p>除雪車ナンバー: '+item.vehicle_number+'</p>';
                 let position='<p>緯度,経度: '+latit+', '+longi+'</p>';
                 let id='<p>作業者ID: '+item.id+'</p>';
@@ -402,7 +404,7 @@
                   car_count=0;
                 }else if(i!=1){
                   latlngs_current=[latit, longi];
-                  L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
+                  L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+datetime+vehicle_number+position+id);
                   // await L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
                   latlngs_prev=[latit, longi];
                 }else{
@@ -416,7 +418,7 @@
 
                   // await L.marker([latit, longi], { icon: icon_current })
                   // .addTo(mymap)
-                  // .bindPopup(image+time+vehicle_number+position+id); // ポップアップに値を表示
+                  // .bindPopup(image+datetime+vehicle_number+position+id); // ポップアップに値を表示
                 }
               });
             })
