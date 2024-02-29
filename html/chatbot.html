@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- AIチャットボットCSS -->
+    <link rel="stylesheet" href="css/AIbot_copy.css" type="text/css">
+
+    <!-- AIチャットボットJS -->
+    <script type="module" src="js/main.js" defer></script>
+
+
+    <link rel="stylesheet" href="css/HamburgerMenu.css">
+
+</head>
+<body>
+            <!-- ハンバーガーメニュー -->
+            <link href= "https://fonts.googleapis.com/icon?family=Material+Icons" rel= "stylesheet">
+            <header>
+              <div class="sp-menu">
+                <span class="material-icons" id="open">menu</span>
+              </div>
+            </header>
+          
+            <div class="overlay">
+              <span class="material-icons" id="close">close</span>
+              <nav>
+                <ul>
+                  <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
+                  <!-- <img src="freefont_logo_kouzansousho2.png"> -->
+                  <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
+                  <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
+                  <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
+                </ul>
+              </nav>
+            </div>
+    
+            <script src="js/HamburgerMenu.js"></script>
+            <!-- ハンバーガーメニュー終わり -->
+    <div id= "chatbot">
+  
+        <div id= "open_chatbot">
+          <div id= "chatbot-header">
+          <div id= "chatbot-logo">AI Chatbot</div>
+          
+          <!-- <i id= "chatbot-zoom-icon" class="material-icons waves-effect waves-light" onclick= "chatbotZoom()">fullscreen</i> -->
+          
+        </div>
+        
+        <div id= "chatbot-body">
+          <ul id= "chatbot-ul"></ul>
+        </div>
+        
+        <!--入力場所，送信ボタン-->
+        <form onsubmit= "return false">
+          <div id= "chatbot-footer">
+            <input type= "text" id= "chatbot-text" class= "browser-default" placeholder= "テキストを入力">
+            <input type= "submit" value= "送信" id= "chatbot-submit">
+          </div>
+        </form>
+        
+      </div>
+      
+    </div>
+</body>
+
