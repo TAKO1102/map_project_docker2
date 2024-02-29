@@ -1,6 +1,34 @@
 //厳格モード、つまり、的確なエラーチェックが行われる
 'use strict';
 
+// {
+//     const chatbot = document.getElementById('chatbot');
+//     const open_chatbot_button = document.getElementById('open_chatbot_button');
+
+//     open_chatbot_button.addEventListener('click', () => {
+//         chatbot.classList.add('show');
+//         open_chatbot_button.classList.add('hide');
+//     });
+
+// }
+
+// $(function () {
+//     $(document).on("click", ".deleteEvent", function (e) {
+//         // $(this)でイベントが発生した要素を取得して削除する
+//         $(this).remove();
+//     });
+// });
+
+// const changeVisibility = () => {
+//     var ele = $('#chatbot');
+   
+//     if (ele.css('visibility') == 'hidden') {
+//       ele.css('visibility', 'visible'); 
+//     } else {
+//       ele.css('visibility', 'hidden');
+//     }
+// }
+
 /*
 【補足】
 - チャットの画面にある「ul」にJavaScriptで「li」を追加していく仕組みです。
@@ -65,7 +93,7 @@
 //     messages: [{role: "user", content: "ChatGPT について教えて"}],
 // });
 //   console.log(completion.data.choices[0].message);
-const API_KEY = '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';
+const API_KEY = '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';
 
 
 // async function chatgpt(mytext){
@@ -105,11 +133,16 @@ const API_KEY = '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';
 // textには投稿文，continueは次も連続で投稿するかどうか，optionは普通の投稿or選択肢orランダム投稿など
 const chatList = {
     1: {text: 'ようこそ「除雪質問 chatbot」へ！', continue: false, option: 'normal'},
-    // 2: {text: 'a', continue: false, option: 'normal'},
-    // 3: {text: 'i', continue: false, option: 'normal'},
-    // 4: {text: 'u', continue: false, option: 'normal'},
-    // 5: {text: 'e', continue: false, option: 'normal'},
-    // 6: {text: 'o', continue: false, option: 'normal'},
+    2: {text: 'a', continue: false, option: 'normal'},
+    3: {text: 'i', continue: false, option: 'normal'},
+    4: {text: 'u', continue: false, option: 'normal'},
+    5: {text: 'e', continue: false, option: 'normal'},
+    6: {text: 'o', continue: false, option: 'normal'},
+    7: {text: 'a', continue: false, option: 'normal'},
+    8: {text: 'i', continue: false, option: 'normal'},
+    9: {text: 'u', continue: false, option: 'normal'},
+    10: {text: 'e', continue: false, option: 'normal'},
+    11: {text: 'o', continue: false, option: 'normal'},
 };
 
 // 「userCount」は実質必要ないが、管理しやすくするために導入する（「chatList」のコメントアウト，最後のやまびこ，今後の開発）
@@ -324,7 +357,10 @@ const response = await fetch('https://api.openai.com/v1/chat/completions', {
     },
     body: JSON.stringify({
         model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: temp_userText }],
+        messages: [
+            { role: 'user', content: temp_userText },
+            { role: 'system', content: "あなたは優秀な除雪についての質問に対して回答を行うChatBotです" }
+        ],
         temperature: 1.0,
         top_p: 0.7,
         n: 1,
@@ -453,7 +489,7 @@ function chatbotZoom() {
     chatbotZoomShape();
     window.location.href = '#chatbot';
     // フルスクリーン
-    // document.body.requestFullscreen();
+     document.body.requestFullscreen();
 }
 function chatbotZoomOffShape() {
     chatbotZoomState = 'middle';
@@ -481,7 +517,7 @@ function chatbotZoomOff() {
     chatbotZoomOffShape();
     window.history.back();
     // フルスクリーン解除
-    // document.exitFullscreen();
+     document.exitFullscreen();
 }
 
 

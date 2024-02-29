@@ -1,15 +1,18 @@
 
 <?php
 
+    ob_start();
 
     //require_once 'http://192.168.10.120/map_project/dbconnect.php';
     function connect(){
         try{
                 $DB_DATABASE = 'josetu_user';
                 $DB_USERNAME = 'root';
-                $DB_PASSWORD = '';
+                $DB_PASSWORD = 'mysql';
                 $DB_OPTION = 'charset=utf8mb4';
-                $PDO_DSN = "mysql:host=localhost;dbname=" . $DB_DATABASE . ";" . $DB_OPTION; #DSN データソースネームmysqlの場合
+                // $PDO_DSN = "mysql:host=localhost;dbname=" . $DB_DATABASE . ";" . $DB_OPTION; #DSN データソースネームmysqlの場合
+                $PDO_DSN = "mysql:host=mysql;dbname=" . $DB_DATABASE . ";" . $DB_OPTION; #DSN データソースネームmysqlの場合
+
 
                 $db = new PDO($PDO_DSN, $DB_USERNAME, $DB_PASSWORD, #接続するにはまずインスタンスを作成
                 [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -115,7 +118,6 @@
 ?>
 
 <?php
-
 
     session_start();
 

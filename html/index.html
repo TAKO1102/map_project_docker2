@@ -20,8 +20,9 @@
     <style class="mapview" type="text/css">
       /* #mapid { height: 700px; width: 1420px ;top: 0px;left:100px; right:350px;z-index: 0;} */
       /* #mapid { height: 65%; width: 74% ;top: 0px;left:5%; right:18%;z-index: 0;} */
-      #mapid { height: 65vh; width: 74vw ;top: 0px;left:5vh; right:18vh;z-index: 0;}
-      
+      /* #mapid { height: 85vh; width: 74vw ;top: 0px;left:5vh; right:18vh;z-index: 0;} */
+      #mapid { height: 85vh; width: 100vw ;top: 0px;left:0vh; right:0vh;z-index: 0;}
+      /* height: 65vh */
     </style>
 
     <!-- AIチャットボットCSS -->
@@ -51,7 +52,11 @@
 
 
   <body bgcolor="#FFFFFF"><!-- #A9CEEC -->
-    <img src="image/freefont_logo_kouzansousho.png">
+    <div class="logo">
+       <img src="image/app_icon.jpg">
+       <img src="image/freefont_logo_kouzansousho_new.png">
+    </div>
+   
 
     <!-- ハンバーガーメニュー -->
     <link href= "https://fonts.googleapis.com/icon?family=Material+Icons" rel= "stylesheet">
@@ -66,6 +71,7 @@
       <nav>
         <ul>
           <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
+          <li><a href="chatbot.html"><img src="image/freefont_logo_kouzansousho6.png"></a></li>
           <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
           <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
           <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
@@ -76,7 +82,6 @@
       open.addEventListener('click', () => {
       overlay.classList.add('show');
       open.classList.add('hide');
-
     });
 
     close.addEventListener('click', () => {
@@ -93,26 +98,32 @@
     <!--Import Google Icon Font-->
 
 
-<div id= "chatbot">
+
+<!-- <div id= "chatbot">
   
-  <div id= "chatbot-header">
+  <div id= "open_chatbot">
+    <div id= "chatbot-header">
     <div id= "chatbot-logo">AI Chatbot</div>
-    <i id= "chatbot-zoom-icon" class="material-icons waves-effect waves-light" onclick= "chatbotZoom()">fullscreen</i>
+    
+    <i id= "chatbot-zoom-icon" class="material-icons waves-effect waves-light" onclick= "chatbotZoom()">fullscreen</i> 
+    
   </div>
   
   <div id= "chatbot-body">
     <ul id= "chatbot-ul"></ul>
-  </div>
+  </div>-->
   
   <!--入力場所，送信ボタン-->
-  <form onsubmit= "return false">
+  <!-- <form onsubmit= "return false">
     <div id= "chatbot-footer">
       <input type= "text" id= "chatbot-text" class= "browser-default" placeholder= "テキストを入力">
       <input type= "submit" value= "送信" id= "chatbot-submit">
     </div>
   </form>
   
-</div>
+</div> 
+ -->
+
 
 <!-- AIチャットボット終わり -->
 
@@ -129,8 +140,8 @@
     </nav> -->
     <src='./chino64.txt' id='chino'></src>
     <script type="module">
-      var mymap = L.map('mapid').setView([43.79, 142.41],13);
-
+      var mymap = L.map('mapid').setView([43.70, 142.46],13);
+      // var mymap = L.map('mapid').setView([43.79, 142.41],13);
       //var mymap = L.map('mapid').setView([35.6896,139.6918],9);
 
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -199,11 +210,19 @@
       var markers=[];
 
       // markers[0]=
-      L.marker([35.6896, 139.6918]).addTo(mymap);
+      //L.marker([35.6896, 139.6918]).addTo(mymap);
       
+
+
+
+
+
+
+
+
       //.bindPopup('<img src="image/freefont_logo_kouzansousho2.png"  /><p>ここに文章を追加</p>');//.openPopup();
       //markers[1]=
-      L.marker([35.6050, 140.1234]).addTo(mymap).bindPopup("千葉県");
+      //L.marker([35.6050, 140.1234]).on("click", onMarkerClick).addTo(mymap).bindPopup("千葉県");
       //markers[2]=
       L.marker([35.8572, 139.6490]).addTo(mymap).bindPopup("埼玉県");
       //L.marker([43.8089, 142.35355]).addTo(mymap).bindPopup("埼玉県");
@@ -214,15 +233,15 @@
           innerHTML: '<div style="background-color: red; width: 20px; height: 20px;"></div>'
       })
      }).addTo(mymap);
-        // L.marker([43.80963, 142.35355]).addTo(mymap).bindPopup('<img src="image/pre_image.png"  /><p>2023年1月13日10:26</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.80963, 142.35355</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
+        L.marker([43.80963, 142.35355]).addTo(mymap).bindPopup('<img src="image/pre_image.png"  /><p>日時:2023-01-13 10:26:15</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.80963, 142.35355</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p>');
       // L.marker([43.8213211, 142.3541]).addTo(mymap).bindPopup('<img src="image/magarimiti.jpg"  /><p>2023年1月13日10:56</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.8213211, 142.3541</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
 
       //L.marker([43.8173211, 142.35329]).addTo(mymap).bindPopup('<img src="image/pre4_image.jpg"  /><p>2023年1月13日10:56</p><p>除雪車ナンバー:あ 12-34</p><p>緯度,経度: 43.8213211, 142.3541</p><p>作業者ID: 43fb979c-4687-448d-ac0f-1a58e2c76017</p><p>報告内容:除雪を実施しました</p>');
 
 
 
-
-      import data2 from "./data2.json" assert { type: "json" };
+      // import data1 from "./data1.json" assert { type: "json" };
+      // import data2 from "./data2.json" assert { type: "json" };
       // var xhr = new XMLHttpRequest();
       // xhr.open('GET', 'https://zyosetu.net/api/v1/reports', true);
 
@@ -246,13 +265,15 @@
       var latlngs_current = [];
       var latlngs_prev= [];
       var i=0;
+      var even=0;
       var line_count=0;
       var car_count=0;
       fetch(
         // 'https://zyosetu.net/api/v1/reports?capture-time=2024-01-10T10:18:13.741877+09:00&after=1&befor=1&days=1'
-         'https://zyosetu.net/api/v1/reports?sort=2&max=1000'
+         'https://zyosetu.net/api/v1/reports?vehicle-number=experiment3&sort=2&max=100'
         // 'https://zyosetu.net/api/v1/reports?vehicle_number=experiment2&after=1&befor=1&days=1&sort=2&max=100'
-        //'https://zyosetu.net/api/v1/reports?vehicle_number=experiment'
+        //'https://zyosetu.net/api/v1/reports?sort=2&max=500'
+
         )
       .then(response => {
         if (!response.ok) {
@@ -266,10 +287,10 @@
 
         data.forEach(item => {
           var sleep_fn = function() {
-            if(
-              1
+            even++;
+            if(1//even%2==0
               //!(item.user_id=='114514')
-            //  !(item.vehicle_number=='旭川900あ00-00')&& !(item.vehicle_number=='experiment'
+             //item.vehicle_number=='master_data_00001D'
             //  )
            ){
 
@@ -291,156 +312,129 @@
                     popupAnchor: [0, -32], // ポップアップの位置を指定
               });
               car_count++;
-              L.marker([latit_line, longi_line], { icon: icon_current })
-              .addTo(mymap);
+              //L.marker([latit_line, longi_line], { icon: icon_current }).addTo(mymap);
                   //.bindPopup(); 
             }
 
+            // マーカーをクリックしたときにポップアップを表示する関数
+            function onMarkerClick(e) {
+              const maxRetry = 10;
+              let retryCount = 0;
+            //console.log("ids : "+item.id);
+              async function fetchData(){
+                fetch ('https://zyosetu.net/api/v1/reports/'+item.id+'/images')
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error('Image response was not ok');
+                  }
+                  return response.json();
+                })
+                .then( ImageData => {
+
+                  // Base64文字列を取得
+                  var base64img = "data:image/png;base64,"+ImageData.image;
+                  //console.log(base64img);
+
+                  function Base64ToImage(base64img, callback) {
+                    var img = new Image();
+                    img.onload = function() {
+                        callback(img);
+                    };
+                    img.src = base64img;
+                  }
+                  
+                  // Base64文字列を画像に変換
+                  Base64ToImage(base64img, async function(img) {
+                    // 1. 画像をbase64形式で読み込む
+                    var img = new Image();
+                    img.src =  base64img;
+
+                    // 2. 画像をCanvasに描画する
+                    var canvas = document.createElement('canvas');
+                    var x = 270;
+                    var y = 180;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, x, y);
+                    //ctx.drawImage(img, 0, 0);
 
 
-            function Base64ToImage(base64img, callback) {
-              var img = new Image();
-              img.onload = function() {
-                  callback(img);
-              };
-              img.src = base64img;
+                    // 3. Canvasから新しいbase64形式の画像を取得する
+                    var resizedImg = canvas.toDataURL('image/png');
+
+                    // 4. 新しい画像をWebサイトの画面に表示する
+                    var newImg = new Image();
+                    newImg.src = resizedImg;
+                    //document.body.appendChild(newImg);
+
+
+                    
+                    let image='<img src='+'"'+resizedImg+'"'+'/>';
+                    //console.log(item);
+                    var longi=item.longitude;
+                    var latit=item.latitude;
+                    
+                    var date=item.capture_time.substr(0,10)
+                    var time=item.capture_time.substr(11,8)
+                    let datetime='<br><p>日時: '+date+' '+time+'</p>';
+                    let vehicle_number='<p>除雪車ナンバー: '+item.vehicle_number+'</p>';
+                    let position='<p>緯度,経度: '+latit+', '+longi+'</p>';
+                    let id='<p>作業者ID: '+item.id+'</p>';
+
+
+                    i++;
+
+
+
+                    if(car_count==1){
+                      console.log("kuruma");
+                      car_count=0;
+                    }else if(i!=1){
+                      latlngs_current=[latit, longi];
+                      L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(
+                        image+
+                      datetime+vehicle_number+position+id);
+
+                      latlngs_prev=[latit, longi];
+                    }else{
+                      latlngs_prev=[latit, longi];
+
+                    }
+                  });
+                })
+                .catch(error => {
+                  retryCount++;
+
+                  if(retryCount < maxRetry){
+                    //console.log("Retry : "+retryCount);
+                    fetchData();
+                  }else{
+                    console.error(error);
+                  }
+                  
+                });
+              }
+              fetchData();
             }
+
+            // マーカーを作る
+            var marker = L.marker([item.latitude, item.longitude]);
+            // マーカーをクリックしたときにonMarkerClick関数を呼び出す
+
+            marker.on("click", onMarkerClick(this,item));
+
+            // マーカーを地図に追加する
+            marker.addTo(mymap);
+
+
             console.log(item.vehicle_number);
 
 
 
-            const maxRetry = 10;
-            let retryCount = 0;
-
-          async function fetchData(){
-            fetch ('https://zyosetu.net/api/v1/reports/'+item.id+'/images')
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Image response was not ok');
-              }
-              return response.json();
-            })
-            .then( ImageData => {
-
-              
-
-              // テキストデータを取得した後の処理を行う
-              //console.log("ImageData : "+ImageData);
-              //console.log("ImageData.image : "+ImageData.image);
-
-              // Base64文字列を取得
-              var base64img = "data:image/png;base64,"+ImageData.image;
-              //console.log(base64img);
-
-              // Base64文字列を画像に変換
-              Base64ToImage(base64img, async function(img) {
-                // 1. 画像をbase64形式で読み込む
-                var img = new Image();
-                img.src =  base64img;
-
-                // 2. 画像をCanvasに描画する
-                var canvas = document.createElement('canvas');
-                var x = 270;
-                var y = 180;
-                var ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, x, y);
-                //ctx.drawImage(img, 0, 0);
-
-
-                // 3. Canvasから新しいbase64形式の画像を取得する
-                var resizedImg = canvas.toDataURL('image/png');
-
-                // 4. 新しい画像をWebサイトの画面に表示する
-                var newImg = new Image();
-                newImg.src = resizedImg;
-                //document.body.appendChild(newImg);
-
-
-                
-                let image='<img src='+'"'+resizedImg+'"'+'/>';
-                //console.log(item);
-                var longi=item.longitude;
-                var latit=item.latitude;
-                
-                var date=item.capture_time.substr(0,10)
-                var time=item.capture_time.substr(11,8)
-                let datetime='<br><p>日時: '+date+' '+time+'</p>';
-                let vehicle_number='<p>除雪車ナンバー: '+item.vehicle_number+'</p>';
-                let position='<p>緯度,経度: '+latit+', '+longi+'</p>';
-                let id='<p>作業者ID: '+item.id+'</p>';
-                //let message='<p>報告内容: '+除雪を実施しました+'</p>';
-
-                //console.log(vehicle_number+",  ");
-
-                //L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
-               
-
-                i++;
-                // if(i==1){
-                //   latlngs_prev=[latit, longi];
-                //   L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
-                // }
-                // else if(i<60){
-                //   latlngs_current=[latit, longi];
-                //   L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+time+vehicle_number+position+id);
-                //   L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
-                //   latlngs_prev=[latit, longi];
-                // }else{
-                //   latlngs_prev=[latit, longi];
-                //   var icon_current = L.icon({
-                //     iconUrl: "image/car_icon2.png", // 画像のURLを指定
-                //     iconSize: [32, 32], // 画像のサイズを指定
-                //     iconAnchor: [16, 32], // 画像の中心点を指定
-                //     popupAnchor: [0, -32], // ポップアップの位置を指定
-                //   });
-
-                //   L.marker([latit, longi], { icon: icon_current })
-                //   .addTo(mymap)
-                //   .bindPopup(image+time+vehicle_number+position+id); // ポップアップに値を表示
-                // }
-
-
-                if(car_count==1){
-                  console.log("kuruma");
-                  car_count=0;
-                }else if(i!=1){
-                  latlngs_current=[latit, longi];
-                  L.marker([latit, longi],{ riseOnHover: true }).addTo(mymap).bindPopup(image+datetime+vehicle_number+position+id);
-                  // await L.polyline([latlngs_current,latlngs_prev], {color: 'green'}).addTo(mymap);
-                  latlngs_prev=[latit, longi];
-                }else{
-                  latlngs_prev=[latit, longi];
-                  // var icon_current = L.icon({
-                  //   iconUrl: "image/car_icon2.png", // 画像のURLを指定
-                  //   iconSize: [32, 32], // 画像のサイズを指定
-                  //   iconAnchor: [16, 32], // 画像の中心点を指定
-                  //   popupAnchor: [0, -32], // ポップアップの位置を指定
-                  // });
-
-                  // await L.marker([latit, longi], { icon: icon_current })
-                  // .addTo(mymap)
-                  // .bindPopup(image+datetime+vehicle_number+position+id); // ポップアップに値を表示
-                }
-              });
-            })
-            .catch(error => {
-              retryCount++;
-
-              if(retryCount < maxRetry){
-                console.log("Retry : "+retryCount);
-                fetchData();
-              }else{
-                console.error(error);
-              }
-              
-            });
-          }
-          fetchData();
         }
         };
-        var tm = 100;
+        var tm = 200;
         setTimeout(sleep_fn,tm);
-          
+        console.log("i  :  "+i);
         });  
       })
 
