@@ -35,6 +35,7 @@
         <ul>
           <li><a href="index.html"><img src="image/freefont_logo_kouzansousho2.png"></a></li>
           <!-- <img src="freefont_logo_kouzansousho2.png"> -->
+          <li><a href="chatbot.html"><img src="image/freefont_logo_kouzansousho6.png"></a></li>
           <li><a href="./login.php"><img src="image/freefont_logo_kouzansousho3.png"></a></li>
           <li><a href="access.html"><img src="image/freefont_logo_kouzansousho4.png"></a></li>
           <li><a href="question_form.html"><img src="image/freefont_logo_kouzangyousho5.png"></a></li>
